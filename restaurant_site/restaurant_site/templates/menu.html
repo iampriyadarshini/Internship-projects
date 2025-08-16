@@ -1,0 +1,30 @@
+<!-- templates/menu.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu - Restaurant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1 class="menu-title">Our Delicious Menu</h1>
+
+    <form action="/order" method="POST" class="menu-form">
+        <div class="menu-container">
+            {% for dish in dishes %}
+                <div class="dish-card">
+                    <img src="{{ url_for('static', filename=dish.image) }}" alt="{{ dish.name }}" class="dish-img">
+                    <h2>{{ dish.name }}</h2>
+                    <p>₹ {{ dish.price }}</p>
+                    <label>
+                        <input type="checkbox" name="dish" value="{{ dish.id }}"> Add to order
+                    </label>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="order-button-container">
+            <button type="submit" class="order-btn">Place Order</button>
+        </div>
+    </form>
+</body>
+</html>

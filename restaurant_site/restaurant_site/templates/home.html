@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to Flavour Fusion</h1>
+        <p>Experience the best tastes from across the world!</p>
+        <div class="hero-buttons">
+            <a href="{{ url_for('login') }}" class="btn">Login</a>
+            <a href="{{ url_for('signup') }}" class="btn">Signup</a>
+            <a href="{{ url_for('menu') }}" class="btn">View Menu</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

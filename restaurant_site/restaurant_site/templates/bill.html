@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Your Bill</h2>
+
+{% if orders %}
+<table class="bill-table">
+    <thead>
+        <tr>
+            <th>Dish</th>
+            <th>Price (₹)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for dish, price in orders %}
+        <tr>
+            <td>{{ dish }}</td>
+            <td>{{ price }}</td>
+        </tr>
+        {% endfor %}
+        <tr class="total-row">
+            <td><strong>Total</strong></td>
+            <td><strong>₹{{ total }}</strong></td>
+        </tr>
+    </tbody>
+</table>
+{% else %}
+<p>You didn’t order anything!</p>
+{% endif %}
+
+<a href="{{ url_for('menu') }}" class="btn">Back to Menu</a>
+{% endblock %}
